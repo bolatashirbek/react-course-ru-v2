@@ -22,6 +22,10 @@
         return <p>Всем привет, я компонент App</p>
     };
 
+    const News = () => {
+        return <p>К сожалению, новостей нет</p>
+    };
+
     class BigApp extends React.Component {
         render() {
             return (
@@ -29,6 +33,7 @@
                     <h1>Я компонент, BigApp</h1>
                     <p className="red">Компоненты можно вкладывать друг на друга.</p>
                     <App/>
+                    <News/>
                 </React.Fragment>
             )
         }
