@@ -2,24 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>React [RU] Tutorial</title>
+    <title>React [RU] Tutorial v2</title>
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 
     <!-- Не используйте это в production -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        .red {
+            color: #FF0000;
+        }
+    </style>
 </head>
 <body>
 <div id="root"></div>
 <script type="text/babel">
+
     const App = () => {
         return <p>Всем привет, я компонент App</p>
     };
 
+    class BigApp extends React.Component {
+        render() {
+            return (
+                <div>
+                    <h1>Я компонент, BigApp</h1>
+                    <p className="red">Компоненты можно вкладывать друг на друга.</p>
+                </div>
+            )
+        }
+    }
+
     ReactDOM.render(
-        <App/>,
+        <BigApp/>,
         document.getElementById('root')
     );
+
 </script>
 </body>
 </html>
