@@ -18,29 +18,25 @@
 <div id="root"></div>
 <script type="text/babel">
 
-    const App = () => {
-        return <p>Всем привет, я компонент App</p>
-    };
-
     const News = () => {
         return <p>К сожалению, новостей нет</p>
     };
 
-    class BigApp extends React.Component {
-        render() {
-            return (
-                <React.Fragment>
-                    <h1>Я компонент, BigApp</h1>
-                    <p className="red">Компоненты можно вкладывать друг на друга.</p>
-                    <App/>
-                    <News/>
-                </React.Fragment>
-            )
-        }
-    }
+    const Comments = () => {
+        return <p>Нет новостей - комментировать нечего.</p>
+    };
+
+    const App = () => {
+        return (
+            <React.Fragment>
+                <News/>
+                <Comments/>
+            </React.Fragment>
+        )
+    };
 
     ReactDOM.render(
-        <BigApp/>,
+        <App/>,
         document.getElementById('root')
     );
 
