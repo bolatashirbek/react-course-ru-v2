@@ -37,9 +37,26 @@
         }
     ];
 
-    const News = () => {
-        return <p>К сожалению, новостей нет</p>
-    };
+    class News extends React.Component {
+        render() {
+            const newsTemplate = this.props.data.map(function (item, index) {
+                return (
+                    <div key={index}>
+                        <p className="news_author">{item.author}:</p>
+                        <p className="news_text">{item.text}</p>
+                    </div>
+                )
+            });
+
+            console.log(newsTemplate)
+
+            return (
+                <div className="news">
+                    {newsTemplate}
+                </div>
+            )
+        }
+    }
 
     const Comments = () => {
         return <p>Нет новостей - комментировать нечего.</p>
