@@ -43,14 +43,21 @@
 
     class News extends React.Component {
         render() {
-            const newsTemplate = this.props.data.map(function (item) {
-                return (
-                    <div key={item.id}> {/* используем id в качестве ключа*/}
-                        <p className="news_author">{item.author}:</p>
-                        <p className="news_text">{item.text}</p>
-                    </div>
-                )
-            });
+            const {data} = this.props; // аналогично записи const data = this.props.data
+            let newsTemplate;
+
+            if (data.length) { // если новости есть, пробегись map'ом
+                newsTemplate = data.map(function (item) {
+                    return (
+                        <div key={item.id}> {/* используем id в качестве ключа*/}
+                            <p className="news_author">{item.author}:</p>
+                            <p className="news_text">{item.text}</p>
+                        </div>
+                    )
+                })
+            } else { // если новостей нет - сохрани в переменную параграф
+                newsTemplate = <p>К сожалению новостей нет</p>
+            }
 
             return (
                 <div className="news">
