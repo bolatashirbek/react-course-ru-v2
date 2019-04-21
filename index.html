@@ -111,11 +111,15 @@
         }
     }
 
+    News.propTypes = {
+        data: PropTypes.array.isRequired
+    };
+
     const App = () => {
         return (
             <React.Fragment>
                 <h3>Новости</h3>
-                <News data={myNews}/>
+                <News/>
             </React.Fragment>
         )
     };
