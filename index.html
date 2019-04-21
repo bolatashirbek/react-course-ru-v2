@@ -7,6 +7,7 @@
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 
     <!-- Не используйте это в production -->
+    <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
     <style>
@@ -98,10 +99,10 @@
             return newsTemplate
         };
 
-        render(){
+        render() {
             const {data} = this.props;
 
-            return(
+            return (
                 <div className="news">
                     {this.renderNews()}
                     {data.length ? <strong className={'newsCount'}>Всего новостей: {data.length}</strong> : null}
