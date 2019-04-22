@@ -83,6 +83,13 @@
         }
     }
 
+    Article.propTypes = {
+        data: PropTypes.shape({
+            author: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired
+        })
+    };
+
     class News extends React.Component {
         renderNews = () => {
             const {data} = this.props;
