@@ -92,11 +92,11 @@
                     <p className="newsAuthor">{author}:</p>
                     <p className="newsText">{text}</p>
                     {
-                        !visible && <a onClick={this.handleReadMoreClck()} href="#" className="newsReadmore">Подробнее</a>
+                        !visible &&
+                        <a onClick={this.handleReadMoreClck} href="#" className="newsReadmore">Подробнее</a>
                     }
                     {
                         visible && <p className="newsBigText">{bigText}</p>
-
                     }
                 </div>
             )
