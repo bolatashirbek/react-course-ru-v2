@@ -79,6 +79,10 @@
         state = {
             visible: false
         };
+        handleReadMoreClck = (e) => {
+            e.preventDefault();
+            this.setState({visible: true})
+        };
 
         render() {
             const {author, text, bigText} = this.props.data;
@@ -88,7 +92,7 @@
                     <p className="newsAuthor">{author}:</p>
                     <p className="newsText">{text}</p>
                     {
-                        !visible && <a href="#" className="newsReadmore">Подробнее</a>
+                        !visible && <a onClick={this.handleReadMoreClck()} href="#" className="newsReadmore">Подробнее</a>
                     }
                     {
                         visible && <p className="newsBigText">{bigText}</p>
