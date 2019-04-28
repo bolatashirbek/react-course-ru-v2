@@ -151,11 +151,17 @@
         onChangeHandler = (e) => {
             this.setState({myValue: e.currentTarget.value})
         };
+        onBtnClickHandler = (e) => {
+            alert(this.state.myValue)
+        };
 
         render() {
             return (
-                <input className="testInput" onChange={this.onChangeHandler} value={this.state.myValue}
-                       placeholder="Введите значение"/>
+                <React.Fragment>
+                    <input className="testInput" onChange={this.onChangeHandler} value={this.state.myValue}
+                           placeholder="Введите значение"/>
+                    <button onClick={this.onBtnClickHandler}>Показать alert</button>
+                </React.Fragment>
             )
         }
     }
