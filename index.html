@@ -144,10 +144,27 @@
         data: PropTypes.array.isRequired
     };
 
+    class TestInput extends React.Component {
+        state = {
+            myValue: ''
+        };
+        onChangeHandler = (e) => {
+            this.setState({myValue: e.currentTarget.value})
+        };
+
+        render() {
+            return (
+                <input className="testInput" onChange={this.onChangeHandler} value={this.state.myValue}
+                       placeholder="Введите значение"/>
+            )
+        }
+    }
+
     const App = () => {
         return (
             <React.Fragment>
                 <h3>Новости</h3>
+                <TestInput/>
                 <News data={myNews}/>
             </React.Fragment>
         )
