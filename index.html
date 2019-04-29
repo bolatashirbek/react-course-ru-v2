@@ -148,15 +148,7 @@
         data: PropTypes.array.isRequired
     };
 
-    class TestInput extends React.Component {
-        constructor(props) {
-            super(props);
-            this.input = React.createRef()
-        }
-
-        componentDidMount() {
-            this.input.current.focus();
-        }
+    class Add extends React.Component {
 
         onBtnClickHandler = () => {
             alert(this.input.current.value)
@@ -177,7 +169,7 @@
         return (
             <React.Fragment>
                 <h3>Новости</h3>
-                <TestInput/>
+                <Add/>
                 <News data={myNews}/>
             </React.Fragment>
         )
