@@ -156,11 +156,14 @@
 
         render() {
             return (
-                <React.Fragment>
-                    <input className="testInput" defaultValue=''
-                           placeholder="Введите значение" ref={this.input}/>
-                    <button onClick={this.onBtnClickHandler}>Показать alert</button>
-                </React.Fragment>
+                <form className="add">
+                    <input type="text" className="addAuthor" placeholder="Ваше имя"/>
+                    <textarea className="addText" placeholder="Текст новости"></textarea>
+                    <label className="addCheckrule">
+                        <input type="checkbox"/>Я согласен с правилами
+                    </label>
+                    <button className="addBtn" onClick={this.onBtnClickHandler}>Показать alert</button>
+                </form>
             )
         }
     }
