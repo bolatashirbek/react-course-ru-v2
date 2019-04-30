@@ -171,16 +171,29 @@
     };
 
     class Add extends React.Component {
+        state = {
+            name: '',
+            text: ''
+        };
 
         onBtnClickHandler = () => {
             alert(this.input.current.value)
         };
+        handleNameChange = (e) => {
+            this.setState({name: e.currentTarget.value})
+        };
+        handleTextChange = (e) => {
+            this.setState({text: e.currentTarget.value})
+        };
 
         render() {
+            const {name, text} = this.state;
+
             return (
                 <form className="add">
-                    <input type="text" className="addAuthor" placeholder="Ваше имя"/>
-                    <textarea className="addText" placeholder="Текст новости"></textarea>
+                    <input type="text" onChange={this.handleNameChange} className="addAuthor" placeholder="Ваше имя"/>
+                    <textarea onChange={this.handleTextChange} className="addText"
+                              placeholder="Текст новости"></textarea>
                     <label className="addCheckrule">
                         <input type="checkbox"/>Я согласен с правилами
                     </label>
