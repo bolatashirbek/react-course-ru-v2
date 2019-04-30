@@ -173,7 +173,8 @@
     class Add extends React.Component {
         state = {
             name: '',
-            text: ''
+            text: '',
+            agree: false
         };
 
         onBtnClickHandler = () => {
@@ -187,17 +188,19 @@
         };
 
         render() {
-            const {name, text} = this.state;
+            const {name, text, agree} = this.state;
 
             return (
                 <form className="add">
-                    <input type="text" onChange={this.handleNameChange} className="addAuthor" placeholder="Ваше имя"/>
+                    <input type="text" onChange={this.handleNameChange} className="addAuthor" placeholder="Ваше имя"
+                           value={name}/>
                     <textarea onChange={this.handleTextChange} className="addText"
-                              placeholder="Текст новости"></textarea>
+                              placeholder="Текст новости" value={text}></textarea>
                     <label className="addCheckrule">
                         <input type="checkbox"/>Я согласен с правилами
                     </label>
-                    <button className="addBtn" onClick={this.onBtnClickHandler}>Показать alert</button>
+                    <button className="addBtn" onClick={this.onBtnClickHandler} disabled={!agree}>Показать alert
+                    </button>
                 </form>
             )
         }
