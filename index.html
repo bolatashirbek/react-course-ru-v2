@@ -38,13 +38,35 @@
             color: #007DDC;
         }
 
-        .newsCount {
-            margin: 10px 0 0 0;
-            display: block;
+        .add {
+            margin: 0 5px 5px 0;
+            width: 210px;
+            border: 1px dashed rgba(0, 89, 181, 0.82);
         }
 
-        .testInput {
-            margin: 0 5px 5px 0;
+        .addAuthor, .addText, .addBtn, .addCheckrule {
+            display: block;
+            margin: 0 0 5px 0;
+            padding: 5px;
+            width: 94%;
+            border: 1px solid rgba(0, 89, 181, 0.82);
+        }
+
+        .addCheckrule {
+            border: none;
+            font-size: 12px;
+        }
+
+        .addBtn {
+            box-sizing: content-box;
+            color: #FFF;
+            text-transform: uppercase;
+            background: #007DDC;
+        }
+
+        .addBtn:disabled {
+            background: #CCC;
+            color: #999;
         }
     </style>
 </head>
