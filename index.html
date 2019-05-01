@@ -177,14 +177,17 @@
             agree: false
         };
 
-        onBtnClickHandler = () => {
-            alert(this.input.current.value)
+        onBtnClickHandler = (e) => {
+            e.preventDefault();
         };
         handleNameChange = (e) => {
             this.setState({name: e.currentTarget.value})
         };
         handleTextChange = (e) => {
             this.setState({text: e.currentTarget.value})
+        };
+        handleCheckboxChange = (e) => {
+            this.setState({agree: e.currentTarget.checked})
         };
 
         render() {
@@ -197,7 +200,7 @@
                     <textarea onChange={this.handleTextChange} className="addText"
                               placeholder="Текст новости" value={text}></textarea>
                     <label className="addCheckrule">
-                        <input type="checkbox"/>Я согласен с правилами
+                        <input type="checkbox" onChange={this.handleCheckboxChange}/>Я согласен с правилами
                     </label>
                     <button className="addBtn" onClick={this.onBtnClickHandler} disabled={!agree}>Показать alert
                     </button>
