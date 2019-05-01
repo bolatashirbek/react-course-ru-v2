@@ -179,6 +179,8 @@
 
         onBtnClickHandler = (e) => {
             e.preventDefault();
+            const {name, text} = this.state;
+            alert(name + '\n' + text)
         };
         handleNameChange = (e) => {
             this.setState({name: e.currentTarget.value})
