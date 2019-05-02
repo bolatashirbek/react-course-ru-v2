@@ -177,6 +177,14 @@
             agree: false
         };
 
+        validate = () => {
+            const {name, text, agree} = this.state;
+            if (name.trim() && text.trim() && agree) {
+                return true;
+            }
+            return false;
+        };
+
         onBtnClickHandler = (e) => {
             e.preventDefault();
             const {name, text} = this.state;
@@ -204,7 +212,8 @@
                     <label className="addCheckrule">
                         <input type="checkbox" onChange={this.handleCheckboxChange}/>Я согласен с правилами
                     </label>
-                    <button className="addBtn" onClick={this.onBtnClickHandler} disabled={!agree}>Показать alert
+                    <button className="addBtn" onClick={this.onBtnClickHandler} disabled={!this.validate()}>
+                        Показать alert
                     </button>
                 </form>
             )
