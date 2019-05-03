@@ -219,16 +219,19 @@
     }
 
     class App extends React.Component {
+        state = {
+            news: myNews
+        };
+
         render() {
             return (
                 <React.Fragment>
                     <h3>Новости</h3>
                     <Add/>
-                    <News data={myNews}/>
+                    <News data={this.state.news}/>
                 </React.Fragment>
             )
         }
-
     };
 
     ReactDOM.render(
