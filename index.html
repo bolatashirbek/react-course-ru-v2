@@ -218,14 +218,17 @@
         }
     }
 
-    const App = () => {
-        return (
-            <React.Fragment>
-                <h3>Новости</h3>
-                <Add/>
-                <News data={myNews}/>
-            </React.Fragment>
-        )
+    class App extends React.Component {
+        render() {
+            return (
+                <React.Fragment>
+                    <h3>Новости</h3>
+                    <Add/>
+                    <News data={myNews}/>
+                </React.Fragment>
+            )
+        }
+
     };
 
     ReactDOM.render(
