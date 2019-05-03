@@ -188,7 +188,8 @@
         onBtnClickHandler = (e) => {
             e.preventDefault();
             const {name, text} = this.state;
-            alert(name + '\n' + text)
+            //alert(name + '\n' + text)
+            this.props.onAddNews()
         };
         handleChange = (e) => {
             const {id, value} = e.currentTarget;
@@ -218,16 +219,23 @@
         }
     }
 
+    Add.propTypes = {
+        onAddNews: PropTypes.func.isRequired
+    };
+
     class App extends React.Component {
         state = {
             news: myNews
+        };
+        handleAddNews = () => {
+            console.log('Я вызвана из Add, но имею доступ к this.state у App!', this.state)
         };
 
         render() {
             return (
                 <React.Fragment>
+                    <Add onAddNews={this.handleAddNews}/>
                     <h3>Новости</h3>
-                    <Add/>
                     <News data={this.state.news}/>
                 </React.Fragment>
             )
