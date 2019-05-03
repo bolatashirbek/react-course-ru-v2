@@ -189,7 +189,7 @@
             e.preventDefault();
             const {name, text} = this.state;
             //alert(name + '\n' + text)
-            this.props.onAddNews()
+            this.props.onAddNews({name, text})
         };
         handleChange = (e) => {
             const {id, value} = e.currentTarget;
