@@ -190,8 +190,12 @@
         onBtnClickHandler = (e) => {
             e.preventDefault();
             const {name, text, bigText} = this.state;
-            //alert(name + '\n' + text)
-            this.props.onAddNews({name, text, bigText})
+            this.props.onAddNews({
+                id: +new Date(),
+                author: name,
+                text,
+                bigText
+            })
         };
         handleChange = (e) => {
             const {id, value} = e.currentTarget;
