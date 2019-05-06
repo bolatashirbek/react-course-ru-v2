@@ -175,6 +175,7 @@
         state = {
             name: '',
             text: '',
+            bigText: '',
             agree: false
         };
 
@@ -188,9 +189,9 @@
 
         onBtnClickHandler = (e) => {
             e.preventDefault();
-            const {name, text} = this.state;
+            const {name, text, bigText} = this.state;
             //alert(name + '\n' + text)
-            this.props.onAddNews({name, text})
+            this.props.onAddNews({name, text, bigText})
         };
         handleChange = (e) => {
             const {id, value} = e.currentTarget;
