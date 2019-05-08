@@ -47,7 +47,7 @@ class Article extends React.Component {
                 <p className="newsText">{text}</p>
                 {
                     !visible &&
-                    <a onClick={this.handleReadMoreClck} href="#" className="newsReadmore">Подробнее</a>
+                    <a onClick={this.handleReadMoreClck} href="#readmore" className="newsReadmore">Подробнее</a>
                 }
                 {
                     visible && <p className="newsBigText">{bigText}</p>
@@ -119,7 +119,7 @@ class Add extends React.Component {
     };
     handleChange = (e) => {
         const {id, value} = e.currentTarget;
-        this.setState({[id]: e.currentTarget.value})
+        this.setState({[id]: value})
     };
     handleCheckboxChange = (e) => {
         this.setState({agree: e.currentTarget.checked})
@@ -133,7 +133,7 @@ class Add extends React.Component {
     };
 
     render() {
-        const {name, text, bigText, agree} = this.state;
+        const {name, text, bigText} = this.state;
 
         return (
             <form className="add">
