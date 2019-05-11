@@ -49,7 +49,7 @@ class Add extends React.Component {
                     <input type="checkbox" onChange={this.handleCheckboxChange}/>Я согласен с правилами
                 </label>
                 <button className="addBtn" onClick={this.onBtnClickHandler} disabled={!this.validate()}>
-                    Показать alert
+                    Добавить новость
                 </button>
             </form>
         )
