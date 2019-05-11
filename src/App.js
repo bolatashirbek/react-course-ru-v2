@@ -20,8 +20,9 @@ class App extends React.Component {
                 return response.json()
             })
             .then(data => {
-                //console.log('Приехали данные ', data);
-                this.setState({isLoading: false, news: data})
+                setTimeout(() => {
+                    this.setState({isLoading: false, news: data})
+                }, 3000)
             })
     }
 
