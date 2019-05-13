@@ -8,10 +8,24 @@ class App extends React.Component {
         news: null,
         isLoading: false
     };
-    handleAddNews = (data) => {
-        const nextNews = [data, ...this.state.news];
-        this.setState({news: nextNews})
-    };
+
+    static getDerivedStateFromProps(props, state) {
+        let nextFilteredNews;
+        if (Array.isArray(state.news)) {
+            nextFilteredNews = [...state.news];
+
+            nextFilteredNews.forEach((item, index) => {
+                if (item.bigText.toLowerCase().indexOf('pubg') !== -1) {
+                    item.bigText = 'СПАМ'
+                }
+            });
+
+            return {
+                filteredNews: nextFilteredNews,
+            }
+        }
+        return null
+    }
 
     componentDidMount() {
         this.setState({isLoading: true});
@@ -22,12 +36,18 @@ class App extends React.Component {
             .then(data => {
                 setTimeout(() => {
                     this.setState({isLoading: false, news: data})
-                }, 3000)
+                }, 1000)
             })
     }
 
+    handleAddNews = (data) => {
+        const nextNews = [data, ...this.state.news];
+        this.setState({news: nextNews})
+    };
+
     render() {
         const {news, isLoading} = this.state;
+
         return (
             <React.Fragment>
                 <Add onAddNews={this.handleAddNews}/>
