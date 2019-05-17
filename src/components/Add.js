@@ -1,5 +1,7 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from "prop-types";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 class Add extends React.Component {
     state = {
@@ -38,20 +40,32 @@ class Add extends React.Component {
         const {name, text, bigText} = this.state;
 
         return (
-            <form className="add">
-                <input id="name" type="text" onChange={this.handleChange} className="addAuthor"
-                       placeholder="Ваше имя" value={name}/>
-                <textarea id="text" onChange={this.handleChange} className="addText"
-                          placeholder="Текст новости" value={text}></textarea>
-                <textarea id="bigText" onChange={this.handleChange} className="addText"
-                          placeholder="Текст новости подробно" value={bigText}></textarea>
-                <label className="addCheckrule">
-                    <input type="checkbox" onChange={this.handleCheckboxChange}/>Я согласен с правилами
-                </label>
-                <button className="addBtn" onClick={this.onBtnClickHandler} disabled={!this.validate()}>
+            <Form>
+                <Form.Group controlId="form.Author">
+                    <Form.Label>Автор</Form.Label>
+                    <Form.Control id="name" type="text" onChange={this.handleChange} placeholder="Введите ваше имя"
+                                  value={name}/>
+                </Form.Group>
+
+                <Form.Group controlId="form.Title">
+                    <Form.Label>Краткое содержание</Form.Label>
+                    <Form.Control id="text" as="textarea" rows="3" onChange={this.handleChange} value={text}
+                                  placeholder="Введите краткое содержание новости"/>
+                </Form.Group>
+
+                <Form.Group controlId="form.Text">
+                    <Form.Label>Текст новости</Form.Label>
+                    <Form.Control id="bigText" as="textarea" rows="3" onChange={this.handleChange} value={bigText}
+                                  placeholder="Введите полный текст новости"/>
+                </Form.Group>
+
+                <Form.Group controlId="form.Checbox">
+                    <Form.Check type="checkbox" onChange={this.handleCheckboxChange} label="Я согласен с правилами"/>
+                </Form.Group>
+                <Button variant="primary" size="lg" onClick={this.onBtnClickHandler} disabled={!this.validate()}>
                     Добавить новость
-                </button>
-            </form>
+                </Button>
+            </Form>
         )
     }
 }
