@@ -1,4 +1,7 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import {Add} from "./components/Add";
 import {News} from "./components/News";
 import './App.css';
@@ -50,10 +53,20 @@ class App extends React.Component {
 
         return (
             <React.Fragment>
-                <Add onAddNews={this.handleAddNews}/>
-                <h3>Новости</h3>
-                {isLoading && <p>Загружаю...</p>}
-                {Array.isArray(news) && <News data={news}/>}
+                <Container>
+                    <Row>
+                        <Col>
+                            <Add onAddNews={this.handleAddNews}/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <h3>Новости</h3>
+                            {isLoading && <p>Загружаю...</p>}
+                            {Array.isArray(news) && <News data={news}/>}
+                        </Col>
+                    </Row>
+                </Container>;
             </React.Fragment>
         )
     }
