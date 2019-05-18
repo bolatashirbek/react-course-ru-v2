@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
 
 class Article extends React.Component {
@@ -14,16 +15,24 @@ class Article extends React.Component {
         const {author, text, bigText} = this.props.data;
         const {visible} = this.state;
         return (
-            <div className="article">
-                <p className="newsAuthor">{author}:</p>
-                <p className="newsText">{text}</p>
-                {
-                    !visible &&
-                    <a onClick={this.handleReadMoreClck} href="#readmore" className="newsReadmore">Подробнее</a>
-                }
-                {
-                    visible && <p className="newsBigText">{bigText}</p>
-                }
+            <div>
+                <Card border="secondary">
+                    <Card.Body>
+                        <Card.Title>Card Title</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">{author}:</Card.Subtitle>
+                        <Card.Text>
+                            {text}
+                        </Card.Text>
+                        {
+                            !visible &&
+                            <Card.Link onClick={this.handleReadMoreClck} href="#readmore">Подробнее</Card.Link>
+                        }
+                        {
+                            visible && <Card.Text>{bigText}</Card.Text>
+                        }
+                    </Card.Body>
+                </Card>
+                <br/>
             </div>
         )
     }
