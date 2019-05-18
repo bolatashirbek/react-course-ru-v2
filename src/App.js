@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {Add} from "./components/Add";
 import {News} from "./components/News";
-import './App.css';
+import Card from "react-bootstrap/Card";
 
 class App extends React.Component {
     state = {
@@ -56,14 +56,24 @@ class App extends React.Component {
                 <Container>
                     <Row>
                         <Col>
-                            <Add onAddNews={this.handleAddNews}/>
+                            <Card border="primary">
+                                <Card.Body>
+                                    <Card.Header>Добавить новости</Card.Header>
+                                    <Add onAddNews={this.handleAddNews}/>
+                                </Card.Body>
+                            </Card>
+                            <br/>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <h3>Новости</h3>
-                            {isLoading && <p>Загружаю...</p>}
-                            {Array.isArray(news) && <News data={news}/>}
+                            <Card border="primary">
+                                <Card.Body>
+                                    <Card.Header><h3>Новости</h3></Card.Header>
+                                    {isLoading && <p>Загружаю...</p>}
+                                    {Array.isArray(news) && <News data={news}/>}
+                                </Card.Body>
+                            </Card>
                         </Col>
                     </Row>
                 </Container>;
